@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <table class="table table-striped mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Method</th>
+                    <th>Price</th>
+                    <th>Transacted</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                    <tr>
+                        <td>{{ row['symbol'] }}</td>
+                        <td>{{ row['shares'] }}</td>
+                        <td>{{ row['method'] }}</td>
+                        <td>{{ row['price'] | usd }}</td>
+                        <td>{{ row['transacted'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

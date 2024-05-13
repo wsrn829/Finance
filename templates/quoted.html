@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <div style="font-family: Arial, sans-serif; color: #333; padding: 20px;">
+        <p style="font-size: 20px;">A share of <strong>{{ symbol['name'] }}</strong> ({{symbol['symbol']}}) costs ${{symbol['price'] | usd}}.</p>
+    </div>
+{% endblock %}
+
+
+

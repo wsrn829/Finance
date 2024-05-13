@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <table class="table table-striped mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                    <tr>
+                        <td>{{ row['symbol'] }}</td>
+                        <td>{{ row['name'] }}</td>
+                        <td>{{ row['shares'] }}</td>
+                        <td>{{ row['price'] | usd }}</td>
+                        <td>{{ row['total'] | usd}}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td><strong>CASH</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><strong>{{ cash | usd }}</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL STOCK VALUE</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><strong>{{ total_stock_value | usd }}</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL VALUE</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><strong>{{ sum | usd }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
